@@ -44,11 +44,6 @@ class Playfair:
             tmp_list.__init__()
             i += 5
 
-
-    def printMatrix(self):#DEBUG
-        print(self.key_matrix)
-        print(len(self.key_matrix))
-
     '''
     @params: the input_string provided in the cmd line args. (Either ciphertext or plaintext)
     @precondition: N/A
@@ -61,9 +56,7 @@ class Playfair:
         for i in range(0, len(input) - 1):
             if i % 2 == 0:
                 digram = (input[i], input[i + 1])
-                #print digram
                 self.digram_list.append(digram)
-        #print self.digram_list
 
     '''
     @params: a digram tuple
@@ -153,11 +146,9 @@ class Encryption(Playfair):
         first_letter = digram[0]
         second_letter = digram[1]
         row = self.isInSameRow(digram)
-        #print row
         column = self.isInSameColumn(digram)
-        #print column
         box = self.findBox(digram)
-        #print box
+
         if row != -1:
             first_pos = self.key_matrix[row].index(first_letter)
             second_pos = self.key_matrix[row].index(second_letter)
@@ -226,11 +217,9 @@ class Decryption(Playfair):
         first_letter = digram[0]
         second_letter = digram[1]
         row = self.isInSameRow(digram)
-        # print row
         column = self.isInSameColumn(digram)
-        # print column
         box = self.findBox(digram)
-        # print box
+        
         if row != -1:
             first_pos = self.key_matrix[row].index(first_letter)
             second_pos = self.key_matrix[row].index(second_letter)
