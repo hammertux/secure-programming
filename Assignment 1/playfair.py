@@ -219,7 +219,7 @@ class Decryption(Playfair):
         row = self.isInSameRow(digram)
         column = self.isInSameColumn(digram)
         box = self.findBox(digram)
-        
+
         if row != -1:
             first_pos = self.key_matrix[row].index(first_letter)
             second_pos = self.key_matrix[row].index(second_letter)
@@ -315,5 +315,5 @@ elif (sys.argv[1] == '-d'):
     for digram in decrypt.digram_list:
         decrypted_string += (decrypt.decryptDigram(digram).lower())
 
-    decrypted_string = decrypted_string.replace('x', '')
+    decrypted_string = decrypted_string.replace('x', '')#remove padding letters
     print(decrypted_string)
