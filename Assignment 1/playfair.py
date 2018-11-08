@@ -303,7 +303,6 @@ else:
     key = sys.argv[2].upper()
     adjustKey(key)
 
-
 if (sys.argv[1] == '-e'):
     plaintext = sys.argv[3].upper()
     plaintext = adjustInput(plaintext)
@@ -314,7 +313,7 @@ if (sys.argv[1] == '-e'):
 
     for digram in encrypt.digram_list:
         encrypted_string += (encrypt.encryptDigram(digram).lower())
-        
+
     print(encrypted_string)
 
 elif (sys.argv[1] == '-d'):
