@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa588dd-7319-45b7-ab2f-bb6c1a7db095" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/playfair.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Assignment 1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Assignment 1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment 1 (2018).pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment 1 (2018).pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playfair.py" beforeDir="false" afterPath="$PROJECT_DIR$/playfair.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Assignment_1$playfair.coverage" NAME="playfair Coverage Results" MODIFIED="1541692080622" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Assignment_1$playfair.coverage" NAME="playfair Coverage Results" MODIFIED="1541694152851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-822527940">
@@ -52,12 +48,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5854" />
+          <entry key="py" value="6235" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="5854" />
+          <entry key="Python" value="6235" />
         </counts>
       </usages-collector>
     </session>
@@ -67,15 +63,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/playfair.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+            <state relative-caret-position="200">
+              <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
               <folding>
-                <marker date="1541692357320" expanded="true" signature="30:32" ph="..." />
-                <marker date="1541692357320" expanded="true" signature="196:232" ph="..." />
-                <marker date="1541692357320" expanded="true" signature="286:295" ph="..." />
-                <marker date="1541692357320" expanded="true" signature="1831:2294" ph="..." />
-                <marker date="1541692357320" expanded="true" signature="3962:3965" ph="..." />
-                <marker date="1541692357320" expanded="true" signature="4618:4739" ph="..." />
+                <marker date="1541694257634" expanded="true" signature="30:32" ph="..." />
+                <marker date="1541694257634" expanded="true" signature="196:232" ph="..." />
+                <marker date="1541694257634" expanded="true" signature="286:295" ph="..." />
+                <marker date="1541694257634" expanded="true" signature="1837:2318" ph="..." />
+                <marker date="1541694257634" expanded="true" signature="4551:5653" ph="..." />
+                <marker date="1541694257634" expanded="true" signature="6050:6171" ph="..." />
               </folding>
             </state>
           </provider>
@@ -85,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/play_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
-              <caret line="79" column="4" lean-forward="true" selection-start-line="79" selection-start-column="6" selection-end-line="95" selection-end-column="64" />
+              <caret line="79" column="4" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="95" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -102,6 +98,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>tmp_list</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,7 +207,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/playfair.py" />
-      <option name="PARAMETERS" value="-e kbcymuftjhelqxnrwogsdvzp mauprziiwtfpcowlolsssjzuscqioweoevbyivz" />
+      <option name="PARAMETERS" value="-d crypto zbuoalkeelotvcdtcamagvqgmh" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -246,8 +243,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3416216" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38486487" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3416216" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.38486487" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -277,13 +274,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/playfair.py</url>
-          <line>96</line>
-          <option name="timeStamp" value="10" />
+          <line>121</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/playfair.py</url>
-          <line>165</line>
-          <option name="timeStamp" value="11" />
+          <line>154</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -295,21 +292,21 @@
     <entry file="file://$PROJECT_DIR$/play_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
-          <caret line="79" column="4" lean-forward="true" selection-start-line="79" selection-start-column="6" selection-end-line="95" selection-end-column="64" />
+          <caret line="79" column="4" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="95" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/playfair.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        <state relative-caret-position="200">
+          <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
           <folding>
-            <marker date="1541692357320" expanded="true" signature="30:32" ph="..." />
-            <marker date="1541692357320" expanded="true" signature="196:232" ph="..." />
-            <marker date="1541692357320" expanded="true" signature="286:295" ph="..." />
-            <marker date="1541692357320" expanded="true" signature="1831:2294" ph="..." />
-            <marker date="1541692357320" expanded="true" signature="3962:3965" ph="..." />
-            <marker date="1541692357320" expanded="true" signature="4618:4739" ph="..." />
+            <marker date="1541694257634" expanded="true" signature="30:32" ph="..." />
+            <marker date="1541694257634" expanded="true" signature="196:232" ph="..." />
+            <marker date="1541694257634" expanded="true" signature="286:295" ph="..." />
+            <marker date="1541694257634" expanded="true" signature="1837:2318" ph="..." />
+            <marker date="1541694257634" expanded="true" signature="4551:5653" ph="..." />
+            <marker date="1541694257634" expanded="true" signature="6050:6171" ph="..." />
           </folding>
         </state>
       </provider>

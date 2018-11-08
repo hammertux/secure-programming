@@ -33,7 +33,7 @@ class Playfair:
         return self.key_matrix
 
 
-    def printMatrix(self):
+    def printMatrix(self):#DEBUG
         print(self.key_matrix)
         print(len(self.key_matrix))
 
@@ -74,8 +74,8 @@ class Playfair:
         for j in range(0, 5):
             if second_letter in self.key_matrix[j]:
                 second_pos = self.key_matrix[j].index(second_letter)
-                break
-        return (i, first_pos, j, second_pos)
+                return (i, first_pos, j, second_pos)
+        return (-1, -1, -1, -1)
 
     def encryptDigraph(self, digraph):
         first_letter = digraph[0]
@@ -119,6 +119,48 @@ class Playfair:
             s = ''.join(encrypted)
             return s
 
+    def decryptDigram(self, digram):
+        first_letter = digram[0]
+        second_letter = digram[1]
+        row = self.isInSameRow(digram)
+        # print row
+        column = self.isInSameColumn(digram)
+        # print column
+        box = self.findBox(digram)
+        # print box
+        if row != -1:
+            first_pos = self.key_matrix[row].index(first_letter)
+            second_pos = self.key_matrix[row].index(second_letter)
+            if first_pos <= 0:
+                first_pos = 5
+            if second_pos <= 0:
+                second_pos = 5
+            first_encrypted = self.key_matrix[row][first_pos - 1]
+            second_encrypted = self.key_matrix[row][second_pos - 1]
+            encrypted = (first_encrypted, second_encrypted)
+            s = ''.join(encrypted)
+            return s
+        elif column[0] != -1:
+            first_pos = column[0]
+            second_pos = column[1]
+            if first_pos <= 0:
+                first_pos = 5
+            if second_pos <= 0:
+                second_pos = 5
+            first_encrypted = self.key_matrix[first_pos - 1][column[2]]
+            second_encrypted = self.key_matrix[second_pos - 1][column[2]]
+            encrypted = (first_encrypted, second_encrypted)
+            s = ''.join(encrypted)
+            return s
+        else:
+            first_pos = (box[0], box[1])
+            second_pos = (box[2], box[3])
+            first_encrypted = self.key_matrix[first_pos[0]][second_pos[1]]
+            second_encrypted = self.key_matrix[second_pos[0]][first_pos[1]]
+            encrypted = (first_encrypted, second_encrypted)
+            s = ''.join(encrypted)
+            return s
+
 
 def adjustInput(input_str):
 
@@ -127,20 +169,14 @@ def adjustInput(input_str):
             input_str = input_str.replace('I', 'J')
     for i in range(0, len(input_str) - 1):
         if input_str[i] == input_str[i+1] and i % 2 == 0:
-
-            # str_to_list = list(input_str)
-            # str_to_list.insert(i+1, 'X')
-            # input_str = ''.join(str_to_list)
-            #input_str+=''
             input_str = input_str[:i+1] + 'X' + input_str[i+1:]
-            # if len(input_str) % 2 != 0:
-            #     input_str += 'X'
-            #break
     if len(input_str) % 2 != 0:
         input_str += 'X'
     return input_str
 
+
 def adjustKey(input_key):
+
     for i in input_key:
         if i == 'I':
             input_key = input_key.replace('I', 'J')
@@ -168,8 +204,15 @@ elif (sys.argv[1] == '-e'):
 elif (sys.argv[1] == '-d'):
     key = sys.argv[2].upper()
     #print(key, " ", len(key))
-    ciphertext = sys.argv[3]
+    adjustKey(key)
+    ciphertext = sys.argv[3].upper()
     #adjustInput(key)
-    play = Playfair()
+    play = Playfair(ciphertext)
     play.fillMatrix(key)
-    play.printMatrix()
+    #play.printMatrix()
+    play.parseText(ciphertext)
+    decrypteds = ''
+    for digram in play.digraph_list:
+        decrypteds += (play.decryptDigram(digram).lower())
+    decrypteds = decrypteds.replace('x','')
+    print(decrypteds)
