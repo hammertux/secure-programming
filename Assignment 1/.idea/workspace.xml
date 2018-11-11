@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5fa588dd-7319-45b7-ab2f-bb6c1a7db095" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/playfair.py" beforeDir="false" afterPath="$PROJECT_DIR$/playfair.py" afterDir="false" />
-    </list>
+    <list default="true" id="5fa588dd-7319-45b7-ab2f-bb6c1a7db095" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +25,7 @@
     <session id="-2018516528">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="1" />
@@ -63,7 +61,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/playfair.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
+            <state relative-caret-position="5220">
               <caret line="317" column="79" selection-start-line="317" selection-start-column="79" selection-end-line="317" selection-end-column="79" />
               <folding>
                 <marker date="1541698536057" expanded="true" signature="30:32" ph="..." />
@@ -236,7 +234,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1987" y="0" width="1853" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20422927" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -282,7 +279,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/playfair.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
+        <state relative-caret-position="5220">
           <caret line="317" column="79" selection-start-line="317" selection-start-column="79" selection-end-line="317" selection-end-column="79" />
           <folding>
             <marker date="1541698536057" expanded="true" signature="30:32" ph="..." />

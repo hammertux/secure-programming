@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+'''
+Author: Andrea Di Dio
+VUnet ID: ado380
+Student Number: 2593888
+'''
+
 import sys
 
 
