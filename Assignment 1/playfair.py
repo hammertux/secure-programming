@@ -4,6 +4,7 @@
 Author: Andrea Di Dio
 VUnet ID: ado380
 Student Number: 2593888
+E-Mail: andreadidio98@gmail.com
 '''
 
 import sys
