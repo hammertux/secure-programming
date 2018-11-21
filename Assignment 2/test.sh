@@ -38,6 +38,7 @@ if [ "$MATCHES" -gt "$SAMPLES" ] ; then
 fi
 
 #Verify Test:
+
 ((MATCHES=0))
 for counter in {0..19}; do
 	echo -e "VERIFY TEST NUMBER "$counter": \n"

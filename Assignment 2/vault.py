@@ -69,7 +69,7 @@ elif sys.argv[1] == '-v':
     pub_key = sys.argv[3]
     signature = sys.argv[4]
     sign = Signature(None, file_path)
-    sign.verifyFile(pub_key, signature)
+    sign.verifyFile(pub_key, signature) #TODO: Return 0 if success or 1 if not...don't print bool
 elif sys.argv[1] == '-e':
     secret_key = sys.argv[3]
     init_vector = sys.argv[4]
