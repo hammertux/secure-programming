@@ -10,6 +10,7 @@ VERBOSITY="-v"
 MATCHES=0
 SAMPLES=19
 
+
 #Signature Test:
 
 for counter in {0..19}; do
@@ -46,10 +47,12 @@ for counter in {0..19}; do
 	VERIFY_OUTPUT="$(./vault.py -v samples/${counter}.clear public.pem sign)"
 	if [ "$1" = "$VERBOSITY" ] ; then
 		echo -e ${YELLOW}"YOUR OUTPUT: "${NC} ""$VERIFY_OUTPUT"\n"
-		echo -e ${CYAN}"EXPECTED OUTPUT: "${NC} ""$TRUE_BOOL"\n"
+		echo -e ${CYAN}"EXPECTED OUTPUT: "${NC} "\n"
 	fi
-
-	if [ "$VERIFY_OUTPUT" = "$TRUE_BOOL" ] ;
+	
+	./vault.py -v samples/${counter}.clear public.pem sign
+	RETURN=$?
+	if [ $RETURN -eq 0 ] ;
 	then
 		((MATCHES++))
 		echo -e ${GREEN}"MATCH :)\n" ${NC}
@@ -62,4 +65,26 @@ done
 if [ "$MATCHES" -gt "$SAMPLES" ] ; then
         echo -e ${GREEN} "ALL VERIFICATION TESTS PASSED!!!\n"${NC}
 fi
+
+
+#Encrypt Test:
+
+((MATCHES=0))
+for counter in {0..19}; do
+	echo -e "ENCRYPT TEST NUMBER "$counter": \n"
+	./vault.py -e samples/${counter}.clear 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1 > sign
+	DECRYPTED="$(./vault.py -d sign 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1)"
+	EXPECTED="$(cat samples/${counter}.clear)"
+	if [ "$1" = "$VERBOSITY" ] ; then
+                echo -e ${YELLOW}"YOUR OUTPUT: "${NC} ""$DECRYPTED"\n"
+                echo -e ${CYAN}"EXPECTED OUTPUT: "${NC} ""$EXPECTED"\n"
+        fi
+
+	if [ "$DECRYPTED" = "$EXPECTED" ] ; then
+		((MATCHES++))
+		echo -e ${GREEN}"MATCH :)\n" ${NC}
+        else
+                echo -e ${RED}"NOT MATCHED :(\n" ${NC}
+        fi
+done
 
