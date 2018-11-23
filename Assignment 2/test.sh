@@ -67,13 +67,13 @@ if [ "$MATCHES" -gt "$SAMPLES" ] ; then
 fi
 
 
-#Encrypt Test:
+#Encrypt/Decrypt Test:
 
 ((MATCHES=0))
 for counter in {0..19}; do
 	echo -e "ENCRYPT TEST NUMBER "$counter": \n"
-	./vault.py -e samples/${counter}.clear 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1 > sign
-	DECRYPTED="$(./vault.py -d sign 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1)"
+	./vault.py -e samples/${counter}.clear 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1 > encrypted
+	DECRYPTED="$(./vault.py -d encrypted 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1)"
 	EXPECTED="$(cat samples/${counter}.clear)"
 	if [ "$1" = "$VERBOSITY" ] ; then
                 echo -e ${YELLOW}"YOUR OUTPUT: "${NC} ""$DECRYPTED"\n"
@@ -87,4 +87,8 @@ for counter in {0..19}; do
                 echo -e ${RED}"NOT MATCHED :(\n" ${NC}
         fi
 done
+
+if [ "$MATCHES" -gt "$SAMPLES" ] ; then
+        echo -e ${GREEN} "ALL ENCRYPTION/DECRYPTION TESTS PASSED!!!\n"${NC}
+fi
 
