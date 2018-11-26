@@ -115,7 +115,8 @@ class Encryption:
     @short-description: The encrypted file is opened and read into a string (enc), an AES object is created with the 
     secret key and the initialisation vector in CBC mode. The decrypt() member function of the AES module of PyCrypto
     is used to decrypt the enc string (with the iv trimmed off). The decrypted text is then unpadded by finding the
-    non-unicode chars at the end of the decrypted string (PKCS7 standard) and the plain string is finally returned.
+    non-unicode chars at the end of the decrypted string (PKCS7 standard) in the second
+    to last line of the suntionand the plain string is finally returned.
     '''
     def decrypt(self, file):
         fd = open(file, 'rb')
@@ -146,7 +147,8 @@ elif sys.argv[1] == '-v':
     pub_key = sys.argv[3]
     signature = sys.argv[4]
     sign = Signature(None, file_path)
-    if sign.verifyFile(pub_key, signature):
+    verification = sign.verifyFile(pub_key, signature)
+    if verification:
         sys.exit(0)
     else:
         sys.exit(1)
@@ -162,7 +164,8 @@ elif sys.argv[1] == '-e':
         init_vector = binascii.unhexlify(sys.argv[4])
 
     enc = Encryption(init_vector, file_path, secret_key)
-    print(enc.encrypt(), end="")
+    encrypted = enc.encrypt()
+    print(encrypted, end="")
 elif sys.argv[1] == '-d':
     if sys.argv[3][:2] == '0x':
         secret_key = sys.argv[3][2:]
@@ -175,6 +178,7 @@ elif sys.argv[1] == '-d':
         init_vector = binascii.unhexlify(sys.argv[4])
 
     dec = Encryption(init_vector, file_path, secret_key)
-    print(dec.decrypt(file_path), end="")
+    decrypted = dec.decrypt(file_path)
+    print(decrypted, end="")
 else:
     print("Error: Unknown Command!")
