@@ -9,7 +9,7 @@ TRUE_BOOL="True"
 VERBOSITY="-v"
 MATCHES=0
 SAMPLES=19
-
+TESTS_PASSED=0
 
 #Signature Test:
 
@@ -35,6 +35,7 @@ for counter in {0..19}; do
 done
 
 if [ "$MATCHES" -gt "$SAMPLES" ] ; then
+	((TESTS_PASSED++))
 	echo -e ${GREEN} "ALL SIGNATURE TESTS PASSED!!!\n"${NC}
 fi
 
@@ -63,6 +64,7 @@ for counter in {0..19}; do
 done	
 
 if [ "$MATCHES" -gt "$SAMPLES" ] ; then
+	((TESTS_PASSED++))
         echo -e ${GREEN} "ALL VERIFICATION TESTS PASSED!!!\n"${NC}
 fi
 
@@ -72,8 +74,8 @@ fi
 ((MATCHES=0))
 for counter in {0..19}; do
 	echo -e "ENCRYPT TEST NUMBER "$counter": \n"
-	./vault.py -e samples/${counter}.clear 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1 > encrypted
-	DECRYPTED="$(./vault.py -d encrypted 0xdeadbeef ae70254a174e0d4677b9ce5393eb00c1)"
+	./vault.py -e samples/${counter}.clear 0xdeadbeef 0xae70254a174e0d4677b9ce5393eb00c1 > encrypted
+	DECRYPTED="$(./vault.py -d encrypted 0xdeadbeef 0xae70254a174e0d4677b9ce5393eb00c1)"
 	EXPECTED="$(cat samples/${counter}.clear)"
 	if [ "$1" = "$VERBOSITY" ] ; then
                 echo -e ${YELLOW}"YOUR OUTPUT: "${NC} ""$DECRYPTED"\n"
@@ -89,6 +91,11 @@ for counter in {0..19}; do
 done
 
 if [ "$MATCHES" -gt "$SAMPLES" ] ; then
+	((TESTS_PASSED++))
         echo -e ${GREEN} "ALL ENCRYPTION/DECRYPTION TESTS PASSED!!!\n"${NC}
 fi
 
+
+if [ "$TESTS_PASSED" -eq 3 ] ; then
+	echo -e ${GREEN} "ALL TESTS PASSED!!!\n"${NC}
+fi
