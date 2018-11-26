@@ -114,14 +114,13 @@ class Encryption:
     @postcondition: The decrypted text has been returned.
     @short-description: The encrypted file is opened and read into a string (enc), an AES object is created with the 
     secret key and the initialisation vector in CBC mode. The decrypt() member function of the AES module of PyCrypto
-    is used to decrypt the enc string (with the iv trimmed off). the decrypted text is then unpadded by finding the
+    is used to decrypt the enc string (with the iv trimmed off). The decrypted text is then unpadded by finding the
     non-unicode chars at the end of the decrypted string (PKCS7 standard) and the plain string is finally returned.
     '''
     def decrypt(self, file):
         fd = open(file, 'rb')
         enc = fd.read()
         fd.close()
-        self.init_vector = enc[:AES.block_size]
         cipher = AES.new(self.secret_key, AES.MODE_CBC, self.init_vector)
         decrypted = cipher.decrypt(enc[AES.block_size:])
         plain = decrypted[:-ord(decrypted[-1:])]
@@ -152,19 +151,29 @@ elif sys.argv[1] == '-v':
     else:
         sys.exit(1)
 elif sys.argv[1] == '-e':
+    if sys.argv[3][:2] == '0x':
+        secret_key = sys.argv[3][2:]
+    else:
+        secret_key = sys.argv[3]
+
     if sys.argv[4][:2] == '0x':
         init_vector = binascii.unhexlify(sys.argv[4][2:])
     else:
         init_vector = binascii.unhexlify(sys.argv[4])
-    secret_key = sys.argv[3]
+
     enc = Encryption(init_vector, file_path, secret_key)
     print(enc.encrypt(), end="")
 elif sys.argv[1] == '-d':
+    if sys.argv[3][:2] == '0x':
+        secret_key = sys.argv[3][2:]
+    else:
+        secret_key = sys.argv[3]
+
     if sys.argv[4][:2] == '0x':
         init_vector = binascii.unhexlify(sys.argv[4][2:])
     else:
         init_vector = binascii.unhexlify(sys.argv[4])
-    secret_key = sys.argv[3]
+
     dec = Encryption(init_vector, file_path, secret_key)
     print(dec.decrypt(file_path), end="")
 else:
