@@ -75,14 +75,15 @@ fi
 for counter in {0..19}; do
 	echo -e "ENCRYPT TEST NUMBER "$counter": \n"
 	./vault.py -e samples/${counter}.clear 0xdeadbeef 0xae70254a174e0d4677b9ce5393eb00c1 > encrypted
-	DECRYPTED="$(./vault.py -d encrypted 0xdeadbeef 0xae70254a174e0d4677b9ce5393eb00c1)"
+	DECRYPTED="$(./vault.py -d encrypted 0xdeadbeef 0xae70254a174e0d4677b9ce5393eb00c1 > tmp)"
 	EXPECTED="$(cat samples/${counter}.clear)"
+	TMP="$(cat tmp)"
 	if [ "$1" = "$VERBOSITY" ] ; then
-                echo -e ${YELLOW}"YOUR OUTPUT: "${NC} ""$DECRYPTED"\n"
+                echo -e ${YELLOW}"YOUR OUTPUT: "${NC} ""$TMP"\n"
                 echo -e ${CYAN}"EXPECTED OUTPUT: "${NC} ""$EXPECTED"\n"
         fi
 
-	if [ "$DECRYPTED" = "$EXPECTED" ] ; then
+	if [ "$TMP" = "$EXPECTED" ] ; then
 		((MATCHES++))
 		echo -e ${GREEN}"MATCH :)\n" ${NC}
         else
@@ -99,3 +100,7 @@ fi
 if [ "$TESTS_PASSED" -eq 3 ] ; then
 	echo -e ${GREEN} "ALL TESTS PASSED!!!\n"${NC}
 fi
+
+rm tmp
+rm encrypted
+rm sign
